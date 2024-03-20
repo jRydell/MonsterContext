@@ -13,13 +13,6 @@ const Monster = () => {
     setFilterOption(event.target.value);
   };
 
-  // Filtrera monster baserat på det valda alternativet
-  let filteredMonsters = monsters;
-  if (filterOption === "withClaws") {
-    filteredMonsters = monsters.filter((monster) => monster.claws);
-  } else if (filterOption === "withoutClaws") {
-    filteredMonsters = monsters.filter((monster) => !monster.claws);
-  }
 
   // Beräkna totalt antal tentaklar över alla monster
   const totalTentacles = monsters.reduce(
@@ -30,6 +23,14 @@ const Monster = () => {
   const totalMonstersWithClaws = monsters.filter(
     (monster) => monster.claws
   ).length;
+
+  // Filtrera monster baserat på det valda alternativet
+  let filteredMonsters = monsters;
+  if (filterOption === "withClaws") {
+    filteredMonsters = monsters.filter((monster) => monster.claws);
+  } else if (filterOption === "withoutClaws") {
+    filteredMonsters = monsters.filter((monster) => !monster.claws);
+  }
 
   return (
     <div>
